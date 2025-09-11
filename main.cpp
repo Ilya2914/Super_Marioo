@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<iostream>
 
 #include<math.h>
 #include"ncurses.h"
@@ -88,20 +89,25 @@ bool IsCollission(TObject o1, TObject o2){
 }
 
 int main(){
-
+    
     InitConsole();
-
+    int key = -1;
     InitObject(&mario, 39, 10, 3, 3);
     InitObject(brick, 20, 20, 40, 5);
     do{
         ClearMap();
+        if (GetKeyState(VK_SPACE, key) < 0){
+            mario.vertSpeed = - 0.7;
+        }
         VertMoveObject(&mario);
         PutObjectOnMap(brick[0]);
         PutObjectOnMap(mario);
+        key =getch();
         setCur(0,0);
         ShowMap();
+        
         Sleep(30);
-    } while(GetKeyState(VK_ESCAPE) >= 0);
+    } while(GetKeyState(VK_ESCAPE, key) >= 0);
     CloseConsole();
     return 0;
 }

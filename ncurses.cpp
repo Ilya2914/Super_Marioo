@@ -1,17 +1,7 @@
 #include "ncurses.h"
 
 
-int GetKeyState(int key) {
-    static bool initialized = false;
-    if (!initialized) {
-        initscr();
-        //cbreak();
-        noecho();
-        //keypad(stdscr, TRUE);
-        nodelay(stdscr, TRUE); 
-        initialized = true;
-    }
-    int ch = getch();
+int GetKeyState(int key, int ch) {
     return (ch == key) ? -1 : 0;
 }
 
@@ -22,9 +12,7 @@ void SetCursorPosition(int x, int y) {
 
 void InitConsole() {
     initscr();
-    //cbreak();
     noecho();
-    //keypad(stdscr, TRUE);
     nodelay(stdscr, TRUE);
 }
 void Sleep(int a){
