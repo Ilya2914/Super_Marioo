@@ -253,7 +253,7 @@ void CreateLevel(int lvl){
         bkgd(COLOR_PAIR(1));
         InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
             InitObject(GetNewBrick(), 30, 10, 5, 3, '?');
-            InitObject(GetNewBrick(), 50, 10, 5, 3, '?');
+            InitObject(GetNewBrick(), 47, 10, 5, 3, '?');
         InitObject(GetNewBrick(), 60, 15, 40, 10, '#');
             InitObject(GetNewBrick(), 60, 5, 10, 3, '-');
             InitObject(GetNewBrick(), 70, 5, 5, 3, '?');
